@@ -1,0 +1,1 @@
+CREATE TABLE TMB_User(    ID varchar(255),    first_name varchar(255),    minit char(1),    last_name varchar(255),    password varchar(255) NOT NULL,    passenger_email varchar(255),    PRIMARY KEY (ID));

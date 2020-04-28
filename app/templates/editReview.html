@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Edit Review</title>
+    </head>
+    <body>
+        <h2>Edit Review: {{stationName}}</h2><br>
+        <h3>{{status}}</h3>
+        <div>
+            <form action= "/editReview" method="POST">
+                <text>ID - {{rid}}</text><br>
+                <label>Shopping</label>
+                <input type="text" value={{shopping}}><br>
+                <label>Connection Speed</label>
+                <input type="text" value={{connectionSpeed}}><br>
+                <textarea name="comment" cols = "100" rows ="5">{{comment}}}</textarea><br>
+                <input type="submit" name="button" value="Delete Review">
+                <input type="submit" name="button" value="Save Review">
+            </form>
+
+        </div>
+    </body>
+</html>

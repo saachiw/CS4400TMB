@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Register</title>
+    </head>
+    <body>
+        <h2>Register</h2>
+        <div>
+            <form action="/registration" method="POST">
+                <label>Name</label>
+                <input type="text" placeholder="First" name="firstName">
+                <input type="text" placeholder="Middle Initial" name="middleInitial">
+                <input type="text" placeholder="Last" name="lastName"> <br>
+
+                <input type="text" placeholder="Email" name="email"><br>
+
+                <input type="text" placeholder="User ID" name="userID"><br>
+
+                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Confirm Password" name="confirmPassword"><br>
+
+                <input type="submit" value="Register" name="submit">
+            </form>
+        </div>
+    </body>
+</html>

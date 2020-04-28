@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <!-- <script type="text/javascript" src="main.js"></script> -->
+        <!-- <script src="sorttable.js"></script>
+        <script src="sort-table.js"></script> -->
+        <script language="javascript" type="text/javascript"></script>
+
+        <title>View Reviews</title>
+    </head>
+    <body>
+        <h2>{{firstName}} {{lastName}}'s Reviews</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Station</th>
+                    <th>Shopping</th>
+                    <th>Connection Speed</th>
+                    <th>Comment</th>
+                    <th>Approval Status</th>
+
+                </tr>
+                {% for row in rows %}
+                    <tr>
+                        <td><a href="{{url_for('editReview',type=row[1])}}">{{ row[1] }}<a></td>
+                        <td><a href="{{url_for('stationInfo', type=row[8])}}">{{ row[8] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[6] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <form action="/viewReviews" method="POST">
+            <a href="/viewReviewsSortedByIdAsc"><input type="button" name="sortButton" value="Sort by ID (Ascending)"></a>
+            <a href="/viewReviewsSortedByStationAsc"><input type="button" name="sortButton" value="Sort by Station (Ascending)"></a>
+            <a href="/viewReviewsSortedByShoppingAsc"><input type="button" name="sortButton" value="Sort by Shopping (Ascending)"></a>
+            <a href="/viewReviewsSortedByConnectionSpeedAsc"><input type="button" name="sortButton" value="Sort by Connection Speed (Ascending)"></a>
+            <a href="/viewReviewsSortedByApprovalStatusAsc"><input type="button" name="sortButton" value="Approved First"></a>
+            <br>
+
+            <a href="/viewReviewsSortedByIdDesc"><input type="button" name="sortButton" value="Sort by ID (Descending)"></a>
+            <a href="/viewReviewsSortedByStationDesc"><input type="button" name="sortButton" value="Sort by Station (Descending)"></a>
+            <a href="/viewReviewsSortedByShoppingDesc"><input type="button" name="sortButton" value="Sort by Shopping (Descending)"></a>
+            <a href="/viewReviewsSortedByConnectionSpeedDesc"><input type="button" name="sortButton" value="Sort by Connection Speed (Descending)"></a>
+            <a href="/viewReviewsSortedByApprovalStatusDesc"><input type="button" name="sortButton" value="Pending First"></a>
+        </form>
+
+
+    </body>
+</html>

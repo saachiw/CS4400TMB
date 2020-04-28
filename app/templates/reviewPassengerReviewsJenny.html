@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Pending Reviews</title>
+    </head>
+    <body>
+        <h2>Pending Reviews</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Station</th>
+                    <th>Shopping</th>
+                    <th>Connection Speed</th>
+                    <th>Comment</th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0]}} {{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>
+                        <input type="button" value="Approve">
+                        <input type="button" value="Reject">
+                    </td>
+                </tr>
+                 {% endfor %}
+
+            </table>
+        </div>
+    </body>
+</html>

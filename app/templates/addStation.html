@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Add Station</title>
+    </head>
+    <body>
+        <h2>Add Station</h2>
+        <div>
+            <form action="addStation" method="POST">
+                <input type="text" name="stationName" placeholder="Station Name"><br>
+                <input type="text" name="address" placeholder="Street Address"><br>
+                <input type="text" name="city" placeholder="City">
+                <input type="text" name="state" placeholder="State / Province"><br>
+                <input type="text" name="postal" placeholder="Postal / Zip Code"><br>
+
+
+                <select name="line">
+                    {% for line in lines %}
+                    <option value="{{line[0]}}">{{line[0]}}</option>
+                    {% endfor %}
+                </select>
+
+
+                <input type="text" name="order" placeholder="Order">
+                <input type="submit" name="action" value="Add Line">
+
+                <table>
+                    <tr>
+                        <th>Line</th>
+                        <th>Order</th>
+                    </tr>
+                    {% for data in datas %}
+                    <tr>
+                        <td>{{data[0]}}</td>
+                        <td>{{data[1]}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                <input type="submit" name="action" value="Add Station">
+            </form>
+        </div>
+    </body>
+</html>

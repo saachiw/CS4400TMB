@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Line Summary</title>
+    </head>
+    <body>
+        <h2>{{lineName}}: {{numberStops}} Stops</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>Station</th>
+                    <th>Order</th>
+                </tr>
+
+                {% for station in stations %}
+                <tr>
+                    <td><a href="" onclick="this.href='/stationInfo'+'{{station[0]}}'">{{station[0]}}</a></td>
+
+                    <td>{{station[1]}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+            <br>
+            <form action="/lineSummaryPassenger" method="POST">
+                <a href="" onclick="this.href='/lineSummarySortedByStationAsc'+'{{lineName}}'"><input type="button" name="sortButton" value="Sort By Station (Ascending)"></a>
+                <a href="" onclick="this.href='/lineSummarySortedByOrderAsc'+'{{lineName}}'"><input type="button" name="sortButton" value="Sort By Order (Ascending)"></a>
+                <br>
+                <a href="" onclick="this.href='/lineSummarySortedByStationDesc'+'{{lineName}}'"><input type="button" name="sortButton" value="Sort By Station (Descending)"></a>
+                <a href="" onclick="this.href='/lineSummarySortedByOrderDesc'+'{{lineName}}'"><input type="button" name="sortButton" value="Sort By Order (Descending)"></a>
+            </form>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Station Info</title>
+    </head>
+    <body>
+        <h2>{{station}}</h2>
+        <div>
+
+
+            <form action="/stationInfoAdmin{{station}}" method="POST">
+                <select name="stationStatus">
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                    <option value="Half Capacity">Half Capacity</option>
+                </select>
+
+                <input type="submit" name="button" value="Save">
+            </form>
+
+            <p>
+                Current Status: {{status}}<br>
+                Address: {{address}}<br>
+                Lines: {% for line in lines %}
+                        <a href="" onclick="this.href='/lineSummaryAdmin'+'{{line}}'">{{line}}</a>
+                        {% endfor %}
+                <br>
+                Average Shopping: {{shopping}}<br>
+                Average Connection Speed: {{connectionSpeed}}<br><br>
+                Reviews
+            </p>
+
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Shopping</th>
+                    <th>Connection Speed</th>
+                    <th>Comment</th>
+                </tr>
+                {% for row in rows %}
+                    <tr>
+
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+            <br>
+
+
+        </div>
+    </body>
+</html>

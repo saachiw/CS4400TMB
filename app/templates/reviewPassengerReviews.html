@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Pending Reviews</title>
+    </head>
+    <body>
+        <h2>Pending Reviews</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Station</th>
+                    <th>Shopping</th>
+                    <th>Connection Speed</th>
+                    <th>Comment</th>
+                    <th>rID</th>
+                    <th>UserID </th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0]}} {{ row[1] }}</td>
+                    <td><a href="" onclick="this.href='/stationInfoAdmin' + '{{row[2]}}'">{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }} </td>
+                    <td>{{ row[5] }} </td>
+                    <td>{{ row[6] }} </td>
+                    <td>{{ row[7] }} </td>
+
+                </tr>
+                 {% endfor %}
+            </table>
+            <br>
+                <form action="/reviewPassengerReviews" method="POST">
+                <p>Update Review:</p>
+                <select name="userid">
+                    {% for row in rows %}
+                    <option value="{{row[7]}}">{{row[7]}}</option>
+                    {% endfor %}
+                </select>
+                <select name="rid">
+                    {% for row in rows %}
+                    <option value="{{row[6]}}">{{row[6]}}</option>
+                    {% endfor %}
+                </select>
+            <input type="submit" name="action" value="Approve">
+            <input type="submit" name="action" value="Reject">
+        </form>
+        </div>
+    </body>
+</html>

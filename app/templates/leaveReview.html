@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Leave a Review</title>
+    </head>
+    <body>
+        <h2>Leave a Review</h2>
+        <div>
+
+
+            <form action="/leaveReview" method="POST">
+                <select name="stationSelect" method="GET" action="/leaveReview">
+                    <option value="none" SELECTED>-select-</option>
+                    {% for option in option_list %}
+                    <option value="{{ option }}">{{ option }} }</option>
+                    {% endfor %}
+                </select>
+                <br>
+                Shopping<br>
+                <input type="radio" name="shopping" value="1" required="required">1</input>
+                <input type="radio" name="shopping" value="2" required="required">2</input>
+                <input type="radio" name="shopping" value="3" required="required">3</input>
+                <input type="radio" name="shopping" value="4" required="required">4</input>
+                <input type="radio" name="shopping" value="5" required="required">5</input>
+                <br>
+                <br>
+
+                Connection Speed<br>
+                <input type="radio" name="connectionSpeed" value="1" required="required">1</input>
+                <input type="radio" name="connectionSpeed" value="2" required="required">2</input>
+                <input type="radio" name="connectionSpeed" value="3" required="required">3</input>
+                <input type="radio" name="connectionSpeed" value="4" required="required">4</input>
+                <input type="radio" name="connectionSpeed" value="5" required="required">5</input>
+                <br>
+                <br>
+
+                Comment<br>
+                <textarea name="comment" cols = "100" rows ="5"></textarea>
+                <br>
+                <br>
+
+                <input type="submit" value="Submit Review">
+
+            </form>
+        </div>
+    </body>
+</html>

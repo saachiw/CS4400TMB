@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Admin Landing</title>
+    </head>
+    <body>
+        <h2>Welcome {{firstName}} {{lastName}}</h2>
+        <div>
+            <form method='GET'>
+                <a href="/viewTrips"><input type="button" name="viewTrips" value="View Trips"></a>
+                <a href="/addStation"><input type="button" name="addStation" value="Add Station"></a>
+                <a href="/addLine"><input type="button" name="addLine" value="Add Line"></a>
+                <a href="/reviewPassengerReviews"><input type="button" name="reviewPassengerReviews" value="Review Passenger Reviews"></a>
+                <a href="/editProfileAdmin"><input type="button" name="editProfileAdmin" value="Edit Profile"></a>
+                <a href="/buyCard"><input type="button" name="buyCard" value="Buy Card"></a>
+                <a href="/goOnATrip"><input type="button" name="goOnATrip" value="Go On Trip"></a>
+            </form>
+        </div>
+    </body>
+</html>

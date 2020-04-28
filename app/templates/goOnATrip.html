@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Go on a Trip</title>
+    </head>
+    <body>
+        <h2>Go on a Trip</h2>
+        <div>
+            Start Station
+            <form action="/goOnATrip" method="POST">
+                <select name="startStation">
+                    {% for station in stations %}
+                    <option value="{{station}}">{{station}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <br>
+
+                Card Used
+                <select name="cardUsed">
+                    {% for card in cards %}
+                    <option value="{{card[0]}} {{card[1]}}">{{card[0]}}    {{card[1]}}</option>
+                    {% endfor %}
+                </select>
+
+                <br>
+                <input type="submit" name="Embark">
+            </form>
+        </div>
+
+
+
+    </body>
+</html>

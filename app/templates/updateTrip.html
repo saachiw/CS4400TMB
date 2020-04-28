@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Update Trip</title>
+    </head>
+    <body>
+        <h2>Update Trip</h2>
+        <div>
+            <p>Start Station: {{tripData[0]}}</p>
+
+            <form action="/updateTrip{{tripData[3]}}" method="POST">
+            End Station:
+            <select name="endStation">
+                {% for station in stations %}
+                <option value="{{station[0]}}">{{station[0]}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+
+            <p>Card Used: {{tripData[1]}} ({{tripData[2]}})</p>
+
+            <br>
+
+
+                <input type="submit" value="Update">
+            </form>
+        </div>
+
+
+
+    </body>
+</html>

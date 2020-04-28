@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Edit profile</title>
+    </head>
+    <body>
+        <h2>Edit Profile</h2>
+        <div>
+            <form action="/editProfilePassenger" method="POST">
+                Name<br>
+                <input type="text" value={{firstName}} name="firstName">
+                <input type="text" value={{middleInitial}}  name="middleInitial">
+                <input type="text" value={{lastName}} name = "lastName"><br>
+
+                <br>
+                Email<br>
+                <input type="text" value={{email}} name = "email"><br>
+
+                <br>
+                User ID<br>
+                <input type="text" value={{user}} name = "userID"><br>
+
+                <br>
+                Password
+                <input type="value" value={{password}} name = "password">
+
+                Confirm Password
+                <input type="value" value={{password}} name = "confirmPassword"><br>
+
+                <input type="submit" name="action" value="Delete">
+                <input type="submit" name="action" value="Update">
+
+            </form>
+        </div>
+    </body>
+</html>

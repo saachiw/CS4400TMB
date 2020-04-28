@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Line Summary</title>
+    </head>
+    <body>
+        <h2>{{line}}<br>{{numStops}} Stops</h2>
+        <div>
+            <form action="/lineSummaryAdmin{{line}}" method="POST">
+                <table width="30%">
+                    <tr>
+                        <th>Station</th>
+                        <th>Order</th>
+                    </tr>
+
+
+                    {% for stationData in stationDatas %}
+                    <tr>
+                        <td><a href="" onclick="this.href='/stationInfoAdmin'+'{{stationData[0]}}'"><text name="{{stationData[0]}}" value="{{stationData[0]}}">{{stationData[0]}}</text></a></td>
+                        <td><input type="number" value="{{stationData[1]}}" name="{{stationData[1]}}" step="1"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                    <br>
+
+                    <a href="" onclick="this.href='/lineSummaryAdminSortedByStationAsc'+'{{line}}'"><input type="button" name="sortButton" value="Sort By Station (Ascending)"></a>
+                    <a href="" onclick="this.href='/lineSummaryAdminSortedByOrderAsc'+'{{line}}'"><input type="button" name="sortButton" value="Sort By Order (Ascending)"></a>
+                    <br>
+                    <a href="" onclick="this.href='/lineSummaryAdminSortedByStationDesc'+'{{line}}'"><input type="button" name="sortButton" value="Sort By Station (Descending)"></a>
+                    <a href="" onclick="this.href='/lineSummaryAdminSortedByOrderDesc'+'{{line}}'"><input type="button" name="sortButton" value="Sort By Order (Descending)"></a>
+
+                    <br>
+                    <input type="submit" name="action" value="Update">
+
+                    <br>
+
+                    <select name="station_name">
+                        {% for stationData in stationDatas %}
+                        <option value="{{stationData[0]}}">{{stationData[0]}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <input type="submit" name="action" value="Delete">
+
+
+
+            </form>
+
+        </div>
+    </body>
+</html>

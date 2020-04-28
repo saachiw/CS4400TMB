@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>My Trips</title>
+    </head>
+    <body>
+        <h2>My Trips</h2>
+        <div>
+            <table width="70%">
+                <tr>
+                    <th>Start DateTime</th>
+                    <th>End DateTime</th>
+                    <th>Card Used</th>
+                    <th>From</th>
+                    <th>To</th>
+                </tr>
+                {% for row in rows %}
+                <tr>
+                    <form action="/viewTrips" method="POST">
+                        <td>
+                            <a href="" onclick="this.href='/updateTrip'+'{{row[3]}}'">{{row[3]}}</a>
+                        </td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>
+                            <a href="" onclick="this.href='/stationInfo'+'{{row[5]}}'">{{row[5]}}</a>
+                        </td>
+                        <td>{{row[6]}}</td>
+                    </form>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+            <br>
+
+            <a href="/viewTripsSortedByStartDateTimeAsc"><input type="button" name="sortButton" value="Sort by Start DateTime (Ascending)"></a>
+            <a href="/viewTripsSortedByFromStationAsc"><input type="button" name="sortButton" value="Sort by From Station (Ascending)"></a>
+            <a href="/viewTripsSortedByToStationAsc"><input type="button" name="sortButton" value="Sort by To Station (Ascending)"></a>
+
+            <br>
+            <a href="/viewTripsSortedByStartDateTimeDesc"><input type="button" name="sortButton" value="Sort by Start DateTime (Descending)"></a>
+            <a href="/viewTripsSortedByFromStationDesc"><input type="button" name="sortButton" value="Sort by From Station (Descending)"></a>
+            <a href="/viewTripsSortedByToStationDesc"><input type="button" name="sortButton" value="Sort by To Station (Descending)"></a>
+
+
+        </div>
+    </body>
+</html>

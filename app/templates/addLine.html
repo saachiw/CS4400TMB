@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="main.js"></script>
+        <title>Add Line</title>
+    </head>
+    <body>
+        <h2>Add Line</h2>
+        <div>
+            <form action="addLine" method="POST">
+                <input type="text" placeholder="Line Name" name="lineName"><br>
+                    <select name="stationName">
+                    {% for station in stations %}
+                        <option value="{{station[0]}}" >{{station[0]}}</option>
+                    {% endfor %}
+                    </select>
+
+
+                <input type="text" placeholder="Order" name="order">
+                <input type="submit" value="Add Station" name="action">
+
+                <table>
+                    <tr>
+                        <th>Station</th>
+                        <th>Order</th>
+                    </tr>
+
+                    {% for row in datas %}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <input type="submit" value="Add Line" name="action">
+            </form>
+
+        </div>
+    </body>
+</html>
